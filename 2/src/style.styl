@@ -1,0 +1,331 @@
+$dark-blue = #243946
+
+@keyframes breath
+  0%
+  100%
+    transform: rotateX(0deg)
+  50%
+    transform: rotateX(60deg)
+
+*
+  box-sizing: border-box
+  
+body
+  width: 100vw
+  height: 100vh
+  background-color: #e0e0e0
+  overflow: hidden
+  font-size: 12px
+  
+.inspiration
+  position: fixed
+  bottom: 0
+  right: 0
+  padding: 10px
+  text-align: center
+  text-decoration: none
+  font-family: 'Gill Sans', sans-serif
+  font-size: 12px
+  color: rgb(150, 150, 150)
+  
+  img
+    width: 60px
+
+.center
+  position: relative
+  top: 50%
+  left: 50%
+  display: inline-block
+  width: 275px
+  height: 490px
+  border-radius: 3px
+  transform: translate(-50%, -50%)
+  overflow: hidden
+  background-image: linear-gradient(to top right, #f9a743, #f9db5f)
+  
+  @media screen and (max-height: 500px)
+    transition: transform 0.5s
+    transform: translate(-50%, -50%) scale(0.8)
+
+  .ear
+    position: absolute
+    top: -110px
+    width: 200px
+    height: 200px
+    border-radius: 50%
+    background-color: $dark-blue
+    
+    &.ear--left
+      left: -135px
+
+    &.ear--right
+      right: -135px
+
+  .face
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 200px
+    height: 150px
+    margin: 80px auto 10px
+    --rotate-head: 0deg
+    transform: rotate(var(--rotate-head))
+    transition transform 0.2s
+    transform-origin: center 20px
+    
+  .eye
+    display: inline-block
+    width: 25px
+    height: 25px
+    border-radius: 50%
+    background-color: $dark-blue
+    
+    &.eye--left
+      margin-right: 40px
+    &.eye--right
+      margin-left: 40px
+    
+    .glow
+      position: relative
+      top: 3px
+      right: -12px
+      width: 12px
+      height: 6px
+      border-radius: 50%
+      background-color: white
+      transform: rotate(38deg)
+
+  .nose
+    position: relative
+    top: 30px
+    transform: scale(1.1)
+    
+    .glow
+      position: absolute
+      top: 3px
+      left: 32%
+      width: 15px
+      height: 8px
+      border-radius: 50%
+      background-color: #476375
+      
+  .mouth
+    position: relative
+    margin-top: 45px
+    
+  svg.smile
+    position: absolute
+    left: -28px
+    top: -19px
+    transform: scaleX(1.1)
+    stroke: $dark-blue
+
+  .mouth-hole
+    position: absolute
+    top: 0
+    left: -50%
+    width: 60px
+    height: 15px
+    border-radius: 50% / 100% 100% 0% 0
+    transform: rotate(180deg)
+    background-color: $dark-blue
+    z-index: -1
+
+  .tongue
+    position: relative
+    top: 5px
+    width: 30px
+    height: 20px
+    background-color: #ffd7dd
+    transform-origin: top
+    transform: rotateX(60deg)
+
+    &.breath
+      animation: breath 0.3s infinite linear
+      
+  .tongue-top
+    position: absolute
+    bottom: -15px
+    width: 30px
+    height: 30px
+    border-radius: 15px
+    background-color: #ffd7dd
+    
+  .line
+    position: absolute
+    top: 0
+    width: 30px
+    height: 5px
+    background-color: #fcb7bf
+  
+  .median
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 4px
+    height: 25px
+    border-radius: 5px
+    background-color: #fcb7bf
+
+
+  .hands
+    position: relative
+    
+    .hand
+      position: absolute
+      top: -6px
+      display: flex
+      transition: transform 0.5s ease-in-out
+      z-index: 1
+
+    .hand--left
+      left: 50px
+
+      &.hide
+        transform: translate(2px, -155px) rotate(-160deg)
+      &.peek
+        transform: translate(0px, -120px) rotate(-160deg)
+    
+    .hand--right
+      left: 170px
+      
+      &.hide
+        transform: translate(-6px, -155px) rotate(160deg)  
+      &.peek
+        transform: translate(-4px, -120px) rotate(160deg)
+      
+    .finger
+      position: relative
+      z-index: 0
+      
+      .bone
+        width: 20px
+        height: 20px
+        border: 2px solid $dark-blue
+        border-bottom: none
+        border-top: none
+        background-color: #fac555
+        
+      .nail
+        position: absolute
+        left: 0
+        top: 10px
+        width: 20px
+        height: 18px
+        border-radius: 50%
+        border: 2px solid $dark-blue
+        background-color: #fac555
+        z-index: -1
+
+      &:nth-child(1)
+      &:nth-child(3)
+        left: 4px
+        z-index: 1
+        .bone
+          height: 10px
+          
+      &:nth-child(3)
+        left: -4px
+  
+      &:nth-child(2)
+        top: -5px
+        z-index: 2
+      
+      &:nth-child(1)
+      &:nth-child(3)
+        .nail
+          top: 0px
+              
+    
+  .login
+    position: relative
+    display: flex
+    flex-direction: column
+    
+    label
+      position: relative
+      padding: 0 20px
+      
+      .fa
+        position: absolute
+        top: 40%
+        left: 35px
+        color: #bbb
+        
+      .fa:before
+        position: relative
+        left: 1px
+    
+    input
+    .login-button
+      width: 100%
+      height: 35px
+      border: none
+      border-radius: 30px
+    
+    input
+      padding: 0 20px 0 40px
+      margin: 5px 0
+      box-shadow: none
+      outline: none
+      
+    input::placeholder
+      color: #ccc
+    
+    input.password
+      padding: 0 90px 0 40px  
+    
+    .password-button
+      position: absolute
+      top: 9px
+      right: 25px
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 80px
+      height: 27px
+      border-radius: 30px
+      border: none
+      outline: none
+      background-color: $dark-blue
+      color: white
+      
+      &:active
+        transform: scale(0.95)
+      
+    .login-button
+      width: calc(100% - 40px)
+      margin: 20px 20px 0
+      outline: none
+      background-color: $dark-blue
+      color: white
+      transition: transform 0.1s
+      
+      &:active
+        transform: scale(0.95)
+
+  .social-buttons
+    display: flex
+    justify-content: center
+    margin-top: 25px
+    
+    .social
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 35px
+      height: 35px
+      margin: 0 10px
+      border-radius: 50%
+      background-color: $dark-blue
+      color: white
+      font-size: 18px
+      
+      &:active
+        transform: scale(0.95)
+  
+  .footer
+    text-align: center
+    margin-top: 15px
+    

@@ -1,0 +1,382 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  font-size: 12px;
+}
+.inspiration {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 12px;
+  color: #969696;
+}
+.inspiration img {
+  width: 60px;
+}
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 275px;
+  height: 490px;
+  border-radius: 3px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  background-image: linear-gradient(to top right, #f9a743, #f9db5f);
+}
+@media screen and (max-height: 500px) {
+  .center {
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+.center .ear {
+  position: absolute;
+  top: -110px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #243946;
+}
+.center .ear.ear--left {
+  left: -135px;
+}
+.center .ear.ear--right {
+  right: -135px;
+}
+.center .face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  margin: 80px auto 10px;
+  --rotate-head: 0deg;
+  -webkit-transform: rotate(var(--rotate-head));
+          transform: rotate(var(--rotate-head));
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform-origin: center 20px;
+          transform-origin: center 20px;
+}
+.center .eye {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #243946;
+}
+.center .eye.eye--left {
+  margin-right: 40px;
+}
+.center .eye.eye--right {
+  margin-left: 40px;
+}
+.center .eye .glow {
+  position: relative;
+  top: 3px;
+  right: -12px;
+  width: 12px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transform: rotate(38deg);
+          transform: rotate(38deg);
+}
+.center .nose {
+  position: relative;
+  top: 30px;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.center .nose .glow {
+  position: absolute;
+  top: 3px;
+  left: 32%;
+  width: 15px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #476375;
+}
+.center .mouth {
+  position: relative;
+  margin-top: 45px;
+}
+.center svg.smile {
+  position: absolute;
+  left: -28px;
+  top: -19px;
+  -webkit-transform: scaleX(1.1);
+          transform: scaleX(1.1);
+  stroke: #243946;
+}
+.center .mouth-hole {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 60px;
+  height: 15px;
+  border-radius: 50%/100% 100% 0% 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  background-color: #243946;
+  z-index: -1;
+}
+.center .tongue {
+  position: relative;
+  top: 5px;
+  width: 30px;
+  height: 20px;
+  background-color: #ffd7dd;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: rotateX(60deg);
+          transform: rotateX(60deg);
+}
+.center .tongue.breath {
+  -webkit-animation: breath 0.3s infinite linear;
+          animation: breath 0.3s infinite linear;
+}
+.center .tongue-top {
+  position: absolute;
+  bottom: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffd7dd;
+}
+.center .line {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 5px;
+  background-color: #fcb7bf;
+}
+.center .median {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #fcb7bf;
+}
+.center .hands {
+  position: relative;
+}
+.center .hands .hand {
+  position: absolute;
+  top: -6px;
+  display: flex;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  z-index: 1;
+}
+.center .hands .hand--left {
+  left: 50px;
+}
+.center .hands .hand--left.hide {
+  -webkit-transform: translate(2px, -155px) rotate(-160deg);
+          transform: translate(2px, -155px) rotate(-160deg);
+}
+.center .hands .hand--left.peek {
+  -webkit-transform: translate(0px, -120px) rotate(-160deg);
+          transform: translate(0px, -120px) rotate(-160deg);
+}
+.center .hands .hand--right {
+  left: 170px;
+}
+.center .hands .hand--right.hide {
+  -webkit-transform: translate(-6px, -155px) rotate(160deg);
+          transform: translate(-6px, -155px) rotate(160deg);
+}
+.center .hands .hand--right.peek {
+  -webkit-transform: translate(-4px, -120px) rotate(160deg);
+          transform: translate(-4px, -120px) rotate(160deg);
+}
+.center .hands .finger {
+  position: relative;
+  z-index: 0;
+}
+.center .hands .finger .bone {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #243946;
+  border-bottom: none;
+  border-top: none;
+  background-color: #fac555;
+}
+.center .hands .finger .nail {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #243946;
+  background-color: #fac555;
+  z-index: -1;
+}
+.center .hands .finger:nth-child(1),
+.center .hands .finger:nth-child(3) {
+  left: 4px;
+  z-index: 1;
+}
+.center .hands .finger:nth-child(1) .bone,
+.center .hands .finger:nth-child(3) .bone {
+  height: 10px;
+}
+.center .hands .finger:nth-child(3) {
+  left: -4px;
+}
+.center .hands .finger:nth-child(2) {
+  top: -5px;
+  z-index: 2;
+}
+.center .hands .finger:nth-child(1) .nail,
+.center .hands .finger:nth-child(3) .nail {
+  top: 0px;
+}
+.center .login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.center .login label {
+  position: relative;
+  padding: 0 20px;
+}
+.center .login label .fa {
+  position: absolute;
+  top: 40%;
+  left: 35px;
+  color: #bbb;
+}
+.center .login label .fa:before {
+  position: relative;
+  left: 1px;
+}
+.center .login input,
+.center .login .login-button {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 30px;
+}
+.center .login input {
+  padding: 0 20px 0 40px;
+  margin: 5px 0;
+  box-shadow: none;
+  outline: none;
+}
+.center .login input::-webkit-input-placeholder {
+  color: #ccc;
+}
+.center .login input:-ms-input-placeholder {
+  color: #ccc;
+}
+.center .login input::-ms-input-placeholder {
+  color: #ccc;
+}
+.center .login input::placeholder {
+  color: #ccc;
+}
+.center .login input.password {
+  padding: 0 90px 0 40px;
+}
+.center .login .password-button {
+  position: absolute;
+  top: 9px;
+  right: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 27px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background-color: #243946;
+  color: #fff;
+}
+.center .login .password-button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.center .login .login-button {
+  width: calc(100% - 40px);
+  margin: 20px 20px 0;
+  outline: none;
+  background-color: #243946;
+  color: #fff;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+}
+.center .login .login-button:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.center .social-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.center .social-buttons .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #243946;
+  color: #fff;
+  font-size: 18px;
+}
+.center .social-buttons .social:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+.center .footer {
+  text-align: center;
+  margin-top: 15px;
+}
+@-webkit-keyframes breath {
+  0%, 100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+  }
+}
+@keyframes breath {
+  0%, 100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+  }
+}
